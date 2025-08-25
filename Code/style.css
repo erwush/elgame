@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Micro5';
+  src: url('../Assets/Fonts/Micro5.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Minecraftia';
+  src: url('../Assets/Fonts/MinecraftiaReg.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MinecraftTen';
+  src: url('../Assets/Fonts/MinecraftTen.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SGA';
+  src: url('../Assets/Fonts/SGA.woff2') format('woff2');
+}
+
+
+
+
+.navmain a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    justify-content: center;
+}
+
