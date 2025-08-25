@@ -20,12 +20,17 @@
 
 
 
+#searchtxt {
+  background-color: #110735;
+  color: white;
+  font-size: 200%;
+  font-family: 'Micro5', sans-serif;
+}
 
 .navmain a {
     color: white;
     text-decoration: none;
     margin-right: 15px;
-    font-weight: bold;
     justify-content: center;
 }
 
