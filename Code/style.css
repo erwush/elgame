@@ -19,11 +19,25 @@
 }
 
 
+.navbar {
+  height: 3.6rem;
+}
+
+.nav-item {
+  list-style-type: none;
+  padding-top: 1%;
+}
+
+#navgam {
+  width: 110%;
+  padding-bottom: 5%;
+  padding-left: 35%;
+}
 
 #searchtxt {
   background-color: #110735;
   color: white;
-  font-size: 200%;
+  font-size: 115%;
   font-family: 'Micro5', sans-serif;
 }
 
@@ -32,5 +46,33 @@
     text-decoration: none;
     margin-right: 15px;
     justify-content: center;
+
 }
 
+#navte {
+  font-size: medium;
+  margin-right: 25%;
+  color: white;
+  font-family: 'Minecraftia', sans-serif ;
+}
+
+#navte:hover {
+  color: #0988FF;
+  text-decoration: underline;
+}
+
+.carousel-item {
+  width: 75%;
+  image-resolution: 50;
+  padding-left: 25%;
+}
+
+.carousel-control-prev {
+  padding-right: 5%;
+  width: 50%;
+}
+
+.carousel-control-next {
+  padding-left: 5%;
+  width: 50%
+}
