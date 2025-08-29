@@ -18,6 +18,12 @@
   src: url('../Assets/Fonts/SGA.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Motiva Sans';
+  src: url('../Assets/Fonts/MotivaSansBold.woff2') format('woff2');
+}
+
+
 
 .navbar {
   height: 3.6rem;
@@ -29,9 +35,25 @@
 }
 
 #navgam {
-  width: 110%;
+  margin-right: 50px;
+  height: 40px;        /* atur sesuai tinggi navbar */
+  width: auto;         /* biar proporsional */
+  object-fit: contain;
   padding-bottom: 5%;
   padding-left: 35%;
+  align-items: center;
+
+}
+
+.nav-link {
+  object-fit: contain;
+  width: auto;
+  height: auto;
+
+}
+
+.btn.login {
+  background-color: white;
 }
 
 #searchtxt {
@@ -42,18 +64,19 @@
 }
 
 .navmain a {
-    color: white;
-    text-decoration: none;
-    margin-right: 15px;
-    justify-content: center;
-
+  color: white;
+  text-decoration: none;
+  margin-right: 0.9375rem; /* 15px → rem */
+  justify-content: center;
 }
 
 #navte {
   font-size: medium;
-  margin-right: 25%;
+  margin-right: 1.5625rem; /* 25px → rem */
   color: white;
-  font-family: 'Minecraftia', sans-serif ;
+  font-family: 'MotivaSansBold', sans-serif;
+font-style: normal;
+text-transform: uppercase;
 }
 
 #navte:hover {
@@ -67,12 +90,147 @@
   padding-left: 25%;
 }
 
-.carousel-control-prev {
+/* .carousel-control-prev {
   padding-right: 5%;
   width: 50%;
+  z-index: 101;
+} */
+
+/* .carousel-control-next {
+  padding-left: 5%;
+  width: 50%;
+  z-index: 101;
+} */
+
+.carousel-indicators {
+  z-index: 101;
+  margin-top: 3%;
 }
 
-.carousel-control-next {
-  padding-left: 5%;
-  width: 50%
+#carouselExampleIndicators {
+  height: 200%;
+}
+
+.carousel-inner .img {
+  height: 90rem; /* 1440px → rem */
+}
+
+.container-carousel {
+  max-width: 87.5rem; /* 1400px → rem */
+  padding: 2rem 3rem;
+
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  height: 400px;
+    
+}
+
+.carousel-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+
+.main-slide {
+flex: 2.5;
+position: relative;
+border-radius: 12px;
+overflow: hidden;
+background-image: url('../Assets/Gambar/Thumbnail/Subnautica2.jpg');
+background-size: cover;
+background-position: center;
+
+}
+
+.main-slide-content {
+position: absolute;
+bottom: 2rem;
+left: 2rem;
+z-index: 2;
+}
+
+  .footer-link {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .main-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+  radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+  radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+}
+
+
+.main-game-title {
+font-size: 2.5rem;
+font-weight: bold;
+color: white;
+text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+  .main-game-subtitle {
+  color: rgba(255, 255, 255, 0.8); 
+  font-size: 0.9rem;
+  }
+
+        
+  #hero-card, #hero-card-item {
+    background-color: #151212;
+    color: white;
+  }
+.hero-grid1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem; /* 4px */
+}
+
+.hero-grid2 {
+  margin-top: 0.3125rem; /* 5px */
+}
+
+.hero-grid1, .hero-grid2 {
+  width: 100%;
+  border-radius: 0.3125rem; /* 5px */
+  place-items: center;
+}
+
+#hero-card-img3 {
+  width: 85%;
+  align-items: center;
+  height: 100%;
+  border-radius: 0.3125rem; /* 5px */
+  justify-content: center;
+}
+
+#hero-card-img1, #hero-card-img2 {
+  width: 95%;
+  align-items: center;
+  height: auto;
+  border-radius: 0.3125rem; /* 5px */
+  justify-content: center;
+}
+
+#hero-card-title {
+  margin-left: 0.325rem; /* 1px */
+}
+
+
+#hero-card-link {
+  color: white;
+  font-size: 200%;
 }

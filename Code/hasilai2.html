@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store Hero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0e1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3rem;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #8b5cf6;
+        }
+
+        .search-icon {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 3rem;
+        }
+
+        .section-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-section {
+            margin-bottom: 3rem;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            gap: 1.5rem;
+            height: 400px;
+        }
+
+        .main-slide {
+            flex: 2.5;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+        }
+
+        .main-slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+        }
+
+        .main-slide-content {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 2;
+        }
+
+        .main-game-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .main-game-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .slide-thumbnails {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            background: #1a1f35;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            height: 80px;
+        }
+
+        .thumbnail:hover {
+            background: #242b47;
+            border-color: rgba(139, 92, 246, 0.5);
+            transform: translateX(5px);
+        }
+
+        .thumbnail.active {
+            background: #242b47;
+            border-color: #8b5cf6;
+        }
+
+        .thumbnail-image {
+            width: 60px;
+            height: 45px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .thumbnail-info h4 {
+            font-size: 0.85rem;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .thumbnail-info p {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.3;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            z-index: 3;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(139, 92, 246, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-prev { left: 1rem; }
+        .nav-next { right: 1rem; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #8b5cf6;
+            transform: scale(1.3);
+        }
+
+        .top-seller-section {
+            position: relative;
+        }
+
+        .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .browse-more {
+            color: #8b5cf6;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .games-grid {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card {
+            min-width: 220px;
+            background: #1a1f35;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .game-image {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .game-image.balatro {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+        }
+
+        .game-image.rdr2 {
+            background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
+            color: white;
+        }
+
+        .game-image.elden {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+        }
+
+        .game-image.cyberpunk {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: white;
+        }
+
+        .game-price {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .price {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .grid-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .grid-nav:hover {
+            background: rgba(139, 92, 246, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .grid-nav.prev { left: -1.5rem; }
+        .grid-nav.next { right: -1.5rem; }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .glow-effect {
+            position: absolute;
+            top: 20%;
+            right: 15%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">El⭐Game</div>
+            <ul class="nav-links">
+                <li><a href="#">WISHLIST</a></li>
+                <li><a href="#">COMMUNITY</a></li>
+                <li><a href="#">CATEGORIES</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#" class="active">SPACE</a></li>
+            </ul>
+        </div>
+        <button class="search-icon">🔍</button>
+    </nav>
+
+    <div class="container">
+        <div class="carousel-section">
+            <h2 class="section-title">Upcoming Games</h2>
+            
+            <div class="carousel-wrapper">
+                <div class="main-slide">
+                    <div class="main-slide-bg"></div>
+                    <div class="glow-effect"></div>
+                    <div class="main-slide-content">
+                        <div class="main-game-title">SUBNAUTICA 2</div>
+                        <div class="main-game-subtitle">Early Access Available Soon</div>
+                    </div>
+                </div>
+                
+                <div class="slide-thumbnails">
+                    <div class="thumbnail active" data-game="0">
+                        <div class="thumbnail-image" style="background: linear-gradient(135deg, #3b82f6, #1e40af);"></div>
+                        <div class="thumbnail-info">
+                            <h4>Subnautica 2</h4>
+                            <p>Dive deeper into alien oceans with new biomes and creatures</p>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail" data-game="1">
+                        <div class="thumbnail-image" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);"></div>
+                        <div class="thumbnail-info">
+                            <h4>Cyberpunk 2078</h4>
+                            <p>Next-gen RPG with enhanced AI systems</p>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail" data-game="2">
+                        <div class="thumbnail-image" style="background: linear-gradient(135deg, #f59e0b, #d97706);"></div>
+                        <div class="thumbnail-info">
+                            <h4>Stellar Odyssey</h4>
+                            <p>Explore infinite procedurally generated galaxies</p>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail" data-game="3">
+                        <div class="thumbnail-image" style="background: linear-gradient(135deg, #ef4444, #dc2626);"></div>
+                        <div class="thumbnail-info">
+                            <h4>Mech Warriors</h4>
+                            <p>Command giant robots in epic battles</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-nav nav-prev">‹</button>
+                <button class="carousel-nav nav-next">›</button>
+            </div>
+            
+            <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="top-seller-section">
+            <div class="section-header-row">
+                <h2 class="section-title">Top-Seller</h2>
+                <a href="#" class="browse-more">BROWSE MORE</a>
+            </div>
+            
+            <div style="position: relative;">
+                <div class="games-grid">
+                    <div class="game-card">
+                        <div class="game-image balatro">BALATRO</div>
+                        <div class="game-price">
+                            <div class="price">Rp. 117.999,00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-image rdr2">RED DEAD<br>REDEMPTION</div>
+                        <div class="game-price">
+                            <div class="price">Rp. 117.999,00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-image elden">ELDEN RING</div>
+                        <div class="game-price">
+                            <div class="price">Rp. 117.999,00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-image cyberpunk">CYBERPUNK<br>2077</div>
+                        <div class="game-price">
+                            <div class="price">Rp. 117.999,00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-image" style="background: linear-gradient(135deg, #10b981, #059669); color: white;">HOGWARTS<br>LEGACY</div>
+                        <div class="game-price">
+                            <div class="price">Rp. 117.999,00</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="grid-nav prev">‹</button>
+                <button class="grid-nav next">›</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const gameData = [
+            { title: 'SUBNAUTICA 2', subtitle: 'Early Access Available Soon' },
+            { title: 'CYBERPUNK 2078', subtitle: 'Next-Gen RPG Experience' },
+            { title: 'STELLAR ODYSSEY', subtitle: 'Infinite Space Exploration' },
+            { title: 'MECH WARRIORS', subtitle: 'Giant Robot Combat' }
+        ];
+
+        let currentSlide = 0;
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const dots = document.querySelectorAll('.dot');
+        const mainSlideContent = document.querySelector('.main-slide-content');
+
+        function updateCarousel(index) {
+            currentSlide = index;
+            
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            const game = gameData[index];
+            mainSlideContent.innerHTML = `
+                <div class="main-game-title">${game.title}</div>
+                <div class="main-game-subtitle">${game.subtitle}</div>
+            `;
+        }
+
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => updateCarousel(index));
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => updateCarousel(index));
+        });
+
+        document.querySelector('.nav-prev').addEventListener('click', () => {
+            currentSlide = currentSlide > 0 ? currentSlide - 1 : gameData.length - 1;
+            updateCarousel(currentSlide);
+        });
+
+        document.querySelector('.nav-next').addEventListener('click', () => {
+            currentSlide = currentSlide < gameData.length - 1 ? currentSlide + 1 : 0;
+            updateCarousel(currentSlide);
+        });
+
+        // Auto-play
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % gameData.length;
+            updateCarousel(currentSlide);
+        }, 5000);
+
+        // Game grid navigation
+        const gamesGrid = document.querySelector('.games-grid');
+        let currentPosition = 0;
+        const cardWidth = 235; // 220px + 15px gap
+
+        document.querySelector('.grid-nav.next').addEventListener('click', () => {
+            const maxPosition = -(cardWidth * (gamesGrid.children.length - 4));
+            currentPosition = Math.max(currentPosition - cardWidth, maxPosition);
+            gamesGrid.style.transform = `translateX(${currentPosition}px)`;
+        });
+
+        document.querySelector('.grid-nav.prev').addEventListener('click', () => {
+            currentPosition = Math.min(currentPosition + cardWidth, 0);
+            gamesGrid.style.transform = `translateX(${currentPosition}px)`;
+        });
+    </script>
+</body>
+</html>
