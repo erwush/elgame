@@ -1,184 +1,115 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+  .footer-link {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .main-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+  radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+  radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #0b0c15;
-  color: #fff;
+@font-face {
+  font-family: 'Micro5';
+  src: url('../Assets/Fonts/Micro5.woff2') format('woff2');
 }
 
-/* Navbar */
+@font-face {
+  font-family: 'Minecraftia';
+  src: url('../Assets/Fonts/MinecraftiaReg.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MinecraftTen';
+  src: url('../Assets/Fonts/MinecraftTen.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SGA';
+  src: url('../Assets/Fonts/SGA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Motiva Sans';
+  src: url('../Assets/Fonts/MotivaSansBold.woff2') format('woff2');
+}
+
+
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  height: 3.6rem;
+}
+
+.nav-item {
+  list-style-type: none;
+  padding-top: 1%;
+}
+
+#navgam {
+  margin-right: 50px;
+  height: 40px;        /* atur sesuai tinggi navbar */
+  width: auto;         /* biar proporsional */
+  object-fit: contain;
+  padding-bottom: 5%;
+  padding-left: 35%;
   align-items: center;
-  background: #11142a;
-  padding: 1rem 2rem;
+
 }
 
-.navbar .logo {
-  font-size: 1.2rem;
-  font-weight: bold;
+.nav-link {
+  object-fit: contain;
+  width: auto;
+  height: auto;
+
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+.btn.login {
+  background-color: white;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #00bfff;
-}
-
-.search-bar input {
-  padding: 0.4rem;
-  border-radius: 5px;
-  border: none;
-}
-
-/* Banner */
-.banner {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-.banner-slider {
-  position: relative;
-  width: 90%;
-  margin: auto;
-}
-
-.banner-item img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.banner-info {
-  margin-top: 1rem;
-}
-
-.banner-info h3 {
-  font-size: 1.5rem;
-}
-
-.price {
-  color: #0f0;
-  font-weight: bold;
-}
-
-/* Categories */
-.categories {
-  text-align: center;
-  margin: 1.5rem 0;
-}
-
-.categories button {
-  background: #222;
-  color: #fff;
+.btn.browse-more {
+  background-color: transparent;
+  border: 2px solid #8b5cf6;
+  color: #8b5cf6;
+  font-size: 0.75rem;
+  font-weight: 600;
   padding: 0.5rem 1rem;
-  margin: 0.3rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.categories button:hover {
-  background: #00bfff;
+#searchtxt {
+  background-color: #110735;
+  color: white;
+  font-size: 115%;
+  font-family: 'Micro5', sans-serif;
 }
 
-/* Game List */
-.game-list {
-  width: 80%;
-  margin: 2rem auto;
-  background: #1a1d33;
-  padding: 1rem;
-  border-radius: 10px;
+.navmain a {
+  color: white;
+  text-decoration: none;
+  margin-right: 0.9375rem; /* 15px → rem */
+  justify-content: center;
 }
 
-.game-card {
-  display: flex;
-  align-items: center;
-  background: #22243d;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 8px;
+#navte {
+  font-size: medium;
+  margin-right: 1.5625rem; /* 25px → rem */
+  color: white;
+  font-family: 'MotivaSansBold', sans-serif;
+font-style: normal;
+text-transform: uppercase;
 }
 
-.game-card img {
-  width: 120px;
-  border-radius: 8px;
-  margin-right: 1rem;
-}
-
-.game-info h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.price-tag {
-  margin-top: 0.5rem;
-  color: #0f0;
-  font-weight: bold;
-}
-
-.show-more {
-  display: block;
-  margin: 1rem auto;
-  background: #00bfff;
-  border: none;
-  padding: 0.7rem 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.show-more:hover {
-  background: #008fcc;
-}
-
-/* On Sale */
-.on-sale {
-  width: 90%;
-  margin: 2rem auto;
-}
-
-.on-sale h3 {
-  margin-bottom: 1rem;
-}
-
-.sale-slider {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-}
-
-.sale-item {
-  min-width: 200px;
-  background: #1a1d33;
-  padding: 0.5rem;
-  border-radius: 8px;
-}
-
-.sale-item img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-.sale-price {
-  display: block;
-  text-align: center;
-  margin-top: 0.5rem;
-  color: #0f0;
-  font-weight: bold;
+#navte:hover {
+  color: #0988FF;
+  text-decoration: underline;
 }
