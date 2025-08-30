@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: rgba(45, 45, 45, 0.8);
+            border-radius: 8px;
+            padding: 1.5rem;
+            height: fit-content;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .top-nav {
+            background-color: rgba(45, 45, 45, 0.9);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-tab {
+            background: none;
+            border: none;
+            color: #ccc;
+            padding: 8px 0;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-tab:hover {
+            color: white;
+        }
+
+        .nav-tab.active {
+            color: white;
+            border-bottom-color: #3b82f6;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 8px 35px 8px 12px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .filters-section h3 {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .filter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            cursor: pointer;
+            font-size: 13px;
+            color: #bbb;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-item:hover {
+            color: white;
+        }
+
+        .filter-count {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .games-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .game-card {
+            background: linear-gradient(145deg, rgba(45, 45, 45, 0.9), rgba(60, 60, 60, 0.7));
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            transition: all 0.3s;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-image-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .game-image {
+            width: 200px;
+            height: 112px;
+            object-fit: cover;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .game-info {
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .game-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .game-card:hover .game-title {
+            color: #60a5fa;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+
+        .game-date {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .game-reviews {
+            color: #10b981;
+            font-size: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .game-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rating-badge {
+            background-color: #10b981;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .rating-text {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .price-container {
+            text-align: right;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .current-price {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .show-more-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .show-more-btn {
+            background: linear-gradient(45deg, #374151, #4b5563);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .show-more-btn:hover {
+            background: linear-gradient(45deg, #4b5563, #6b7280);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .chevron {
+            transition: transform 0.3s;
+        }
+
+        .chevron.rotated {
+            transform: rotate(180deg);
+        }
+
+        .stats {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 0.5rem;
+            }
+            
+            .sidebar {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .game-card {
+                flex-direction: column;
+            }
+            
+            .game-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="filters-section">
+                <h3>FILTERS</h3>
+                <div class="filter-item">15446 MATCHES</div>
+            </div>
+            
+            <div class="filters-section" style="margin-top: 2rem;">
+                <h3>GENRES</h3>
+                <div class="filter-item">
+                    <span>Puzzle</span>
+                    <span class="filter-count">2779</span>
+                </div>
+                <div class="filter-item">
+                    <span>Arcade</span>
+                    <span class="filter-count">1677</span>
+                </div>
+                <div class="filter-item">
+                    <span>Visual Novel</span>
+                    <span class="filter-count">1477</span>
+                </div>
+                <div class="filter-item">
+                    <span>Shooter</span>
+                    <span class="filter-count">1388</span>
+                </div>
+                <div class="filter-item">
+                    <span>Point & Click</span>
+                    <span class="filter-count">1030</span>
+                </div>
+                <div class="filter-item" style="color: #3b82f6;">
+                    <span>Show More</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-nav">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" data-category="ALL">ALL</button>
+                    <button class="nav-tab" data-category="NEW & TRENDING">NEW & TRENDING</button>
+                    <button class="nav-tab" data-category="TOP SELLERS">TOP SELLERS</button>
+                    <button class="nav-tab" data-category="TOP RATED">TOP RATED</button>
+                    <button class="nav-tab" data-category="POPULAR UPCOMING">POPULAR UPCOMING</button>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search for a tag or option" id="searchInput">
+                    <button class="search-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="games-grid" id="gamesGrid">
+                <!-- Games will be inserted here -->
+            </div>
+
+            <div class="show-more-container">
+                <button class="show-more-btn" id="showMoreBtn">
+                    Browse More
+                    <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="stats" id="stats"></div>
+        </div>
+    </div>
+
+    <script>
+        var games = [
+            {
+                id: 1,
+                title: "No Man's Sky",
+                category: "NEW & TRENDING",
+                genre: ["Open World", "Open World Survival Craft", "Space", "Exploration", "Sci-fi"],
+                date: "AUG 12, 2016",
+                reviews: "Very Positive 163,701 User Reviews",
+                discount: 60,
+                originalPrice: "Rp 449,999",
+                currentPrice: "Rp 179,999",
+                image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=300&h=170&fit=crop",
+                rating: 89
+            },
+            {
+                id: 2,
+                title: "Total War: WARHAMMER III",
+                category: "TOP SELLERS",
+                genre: ["Strategy", "Turn-Based Strategy", "Grand Strategy", "RTS", "Fantasy"],
+                date: "FEB 17, 2022",
+                reviews: "Mostly Positive 44,674 User Reviews",
+                discount: 70,
+                originalPrice: "Rp 649,999",
+                currentPrice: "Rp 194,699",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=170&fit=crop",
+                rating: 78
+            },
+            {
+                id: 3,
+                title: "Red Dead Redemption 2",
+                category: "TOP RATED",
+                genre: ["Open World", "Story Rich", "Western", "Adventure", "Multiplayer"],
+                date: "DEC 5, 2019",
+                reviews: "Very Positive 257,940 User Reviews",
+                discount: 75,
+                originalPrice: "Rp 879,999",
+                currentPrice: "Rp 219,750",
+                image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=300&h=170&fit=crop",
+                rating: 97
+            },
+            {
+                id: 4,
+                title: "Hogwarts Legacy",
+                category: "POPULAR UPCOMING",
+                genre: ["Magic", "Open World", "Fantasy", "Singleplayer", "Adventure"],
+                date: "FEB 11, 2023",
+                reviews: "Very Positive 129,642 User Reviews",
+                discount: 80,
+                originalPrice: "Rp 799,999",
+                currentPrice: "Rp 159,800",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=170&fit=crop",
+                rating: 84
+            },
+            {
+                id: 5,
+                title: "Ready or Not",
+                category: "TOP SELLERS",
+                genre: ["Tactical", "Realistic", "FPS", "Shooter", "Multiplayer"],
+                date: "DEC 14, 2023",
+                reviews: "Mostly Positive 131,515 User Reviews",
+                discount: 40,
+                originalPrice: "Rp 259,999",
+                currentPrice: "Rp 155,599",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=170&fit=crop",
+                rating: 76
+            },
+            {
+                id: 6,
+                title: "Hollow Knight",
+                category: "TOP RATED",
+                genre: ["Metroidvania", "Souls-like", "Platformer", "Great Soundtrack", "Difficult"],
+                date: "FEB 25, 2017",
+                reviews: "Overwhelmingly Positive 135,150 User Reviews",
+                discount: 50,
+                originalPrice: "Rp 129,999",
+                currentPrice: "Rp 65,499",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&h=170&fit=crop",
+                rating: 95
+            },
+            {
+                id: 7,
+                title: "Grand Theft Auto V Enhanced",
+                category: "ALL",
+                genre: ["Open World", "Action", "Multiplayer", "Sexual Content", "Crime"],
+                date: "MAR 4, 2022",
+                reviews: "Very Positive 28,041 User Reviews",
+                discount: 56,
+                originalPrice: "Rp 659,999",
+                currentPrice: "Rp 289,999",
+                image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=300&h=170&fit=crop",
+                rating: 87
+            },
+            {
+                id: 8,
+                title: "Cyberpunk 2077",
+                category: "NEW & TRENDING",
+                genre: ["Open World", "RPG", "Futuristic", "Sci-fi", "Dystopian"],
+                date: "DEC 10, 2020",
+                reviews: "Very Positive 645,123 User Reviews",
+                discount: 50,
+                originalPrice: "Rp 599,999",
+                currentPrice: "Rp 299,999",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=170&fit=crop",
+                rating: 78
+            }
+        ];
+
+        var activeCategory = 'ALL';
+        var showMore = false;
+        var searchTerm = '';
+
+        function createGameCard(game) {
+            var discountBadge = game.discount ? '<div class="discount-badge">-' + game.discount + '%</div>' : '';
+            var genreHtml = '';
+            for (var i = 0; i < Math.min(game.genre.length, 4); i++) {
+                genreHtml += '<span class="meta-item">' + game.genre[i] + '</span>';
+            }
+            
+            var originalPriceHtml = game.discount ? '<div class="original-price">' + game.originalPrice + '</div>' : '';
+            
+            return '<div class="game-card">' +
+                    '<div class="game-image-container">' +
+                        '<img src="' + game.image + '" alt="' + game.title + '" class="game-image">' +
+                        discountBadge +
+                    '</div>' +
+                    '<div class="game-info">' +
+                        '<h3 class="game-title">' + game.title + '</h3>' +
+                        '<div class="game-meta">' + genreHtml + '</div>' +
+                        '<div class="game-date">' + game.date + '</div>' +
+                        '<div class="game-reviews">' + game.reviews + '</div>' +
+                        '<div class="game-footer">' +
+                            '<div class="rating-container">' +
+                                '<div class="rating-badge">' + game.rating + '%</div>' +
+                                '<span class="rating-text">User Score</span>' +
+                            '</div>' +
+                            '<div class="price-container">' +
+                                originalPriceHtml +
+                                '<div class="current-price">' + game.currentPrice + '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+        }
+
+        function filterGames() {
+            var result = [];
+            for (var i = 0; i < games.length; i++) {
+                var game = games[i];
+                var matchesCategory = activeCategory === 'ALL' || game.category === activeCategory;
+                var matchesSearch = game.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+                
+                if (!matchesSearch) {
+                    for (var j = 0; j < game.genre.length; j++) {
+                        if (game.genre[j].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+                            matchesSearch = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (matchesCategory && matchesSearch) {
+                    result.push(game);
+                }
+            }
+            return result;
+        }
+
+        function renderGames() {
+            var filteredGames = filterGames();
+            var visibleGames = showMore ? filteredGames : filteredGames.slice(0, 4);
+            
+            var gamesGrid = document.getElementById('gamesGrid');
+            var gamesHtml = '';
+            for (var i = 0; i < visibleGames.length; i++) {
+                gamesHtml += createGameCard(visibleGames[i]);
+            }
+            gamesGrid.innerHTML = gamesHtml;
+
+            var showMoreBtn = document.getElementById('showMoreBtn');
+            
+            if (filteredGames.length > 4) {
+                showMoreBtn.style.display = 'inline-flex';
+                var buttonText = showMore ? 'Show Less' : 'Browse More';
+                var chevronClass = showMore ? 'chevron rotated' : 'chevron';
+                showMoreBtn.innerHTML = buttonText + '<svg class="' + chevronClass + '" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>';
+            } else {
+                showMoreBtn.style.display = 'none';
+            }
+
+            document.getElementById('stats').textContent = 'Showing ' + visibleGames.length + ' of ' + filteredGames.length + ' games';
+        }
+
+        function init() {
+            document.querySelector('.nav-tabs').addEventListener('click', function(e) {
+                if (e.target.classList.contains('nav-tab')) {
+                    var tabs = document.querySelectorAll('.nav-tab');
+                    for (var i = 0; i < tabs.length; i++) {
+                        tabs[i].classList.remove('active');
+                    }
+                    
+                    e.target.classList.add('active');
+                    activeCategory = e.target.getAttribute('data-category');
+                    showMore = false;
+                    renderGames();
+                }
+            });
+
+            document.getElementById('showMoreBtn').addEventListener('click', function() {
+                showMore = !showMore;
+                renderGames();
+            });
+
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                searchTerm = e.target.value;
+                showMore = false;
+                renderGames();
+            });
+
+            renderGames();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>
