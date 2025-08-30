@@ -95,6 +95,7 @@
    </div>
 
   <div class="container">
+    
         <div class="sidebar">
             <div class="filters-section">
                 <h3>FILTERS</h3>
@@ -139,15 +140,21 @@
                     <button class="nav-tab" data-category="POPULAR UPCOMING">POPULAR UPCOMING</button>
                 </div>
                 
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search for a tag or option" id="searchInput">
-                    <button class="search-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                </div>
+
+<div style="display: flex; gap: 1rem; align-items: center;">
+  <button id="filterToggle" class="btn" style="          background-color: #2F2945;; color: white; border: 1px solid rgba(255,255,255,0.2);">
+    <i class="bi bi-funnel"></i>
+  </button>
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search for a tag or option" id="searchInput">
+    <button class="search-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+    </button>
+  </div>
+</div>
             </div>
 
             <div class="games-grid" id="gamesGrid">
@@ -251,6 +258,7 @@
 
 <script>
 // Game data
+// Game data
 var gameData = [
   { title: 'SUBNAUTICA 2', subtitle: 'Early Access Available Soon' },
   { title: 'CYBERPUNK 2078', subtitle: 'Next-Gen RPG Experience' },
@@ -309,7 +317,7 @@ var games = [
     discount: 80,
     originalPrice: "Rp 799,999",
     currentPrice: "Rp 159,800",
-    image: "../Assets/Gambar/Thumbnail/hogwartslegacy.jpg",
+    image: "../Assets/Gambar/Thumbnail/HogwartsLegacy.jpg",
     rating: 84
   },
   {
@@ -371,6 +379,7 @@ var currentSlide = 0;
 var activeCategory = 'ALL';
 var showMore = false;
 var searchTerm = '';
+var sidebarVisible = false;
 
 // Carousel functions
 function updateCarousel(index) {
@@ -392,7 +401,36 @@ function updateCarousel(index) {
   }
 }
 
-// Game card creation
+// Toggle sidebar function
+function toggleSidebar() {
+  var sidebar = document.querySelector('.sidebar');
+  var mainContent = document.querySelector('.main-content');
+  var filterToggle = document.getElementById('filterToggle');
+  
+  if (sidebar && mainContent && filterToggle) {
+    sidebarVisible = !sidebarVisible;
+    
+    if (sidebarVisible) {
+      // Show sidebar
+      sidebar.style.display = 'block';
+      mainContent.style.marginLeft = '0';
+      mainContent.style.width = 'auto';
+      // Active button style
+      filterToggle.style.backgroundColor = '#4D4569';
+      filterToggle.style.borderColor = '#3b82f6';
+      filterToggle.style.color = 'white';
+    } else {
+      // Hide sidebar
+      sidebar.style.display = 'none';
+      mainContent.style.marginLeft = '0';
+      mainContent.style.width = '100%';
+      // Inactive button style
+      filterToggle.style.backgroundColor = '#2F2945';
+      filterToggle.style.borderColor = 'rgba(255,255,255,0.2)';
+      filterToggle.style.color = '#ccc';
+    }
+  }
+}
 function createGameCard(game) {
   var discountBadge = game.discount ? '<div class="discount-badge">-' + game.discount + '%</div>' : '';
   var genreHtml = '';
@@ -482,6 +520,20 @@ function renderGames() {
 
 // Initialize everything when DOM is ready
 function initializeApp() {
+  // Set initial sidebar state (hidden by default)
+  var sidebar = document.querySelector('.sidebar');
+  var mainContent = document.querySelector('.main-content');
+  var filterToggle = document.getElementById('filterToggle');
+  
+  if (sidebar && mainContent && filterToggle) {
+    // Hide sidebar initially
+    sidebar.style.display = 'none';
+    mainContent.style.width = '100%';
+    // Set inactive button style
+    filterToggle.style.backgroundColor = '#2F2945';
+    filterToggle.style.borderColor = 'rgba(255,255,255,0.2)';
+    filterToggle.style.color = '#ccc';
+  }
   // Carousel initialization
   var dots = document.querySelectorAll('.dot');
   for (var i = 0; i < dots.length; i++) {
@@ -535,7 +587,13 @@ function initializeApp() {
     });
   }
 
-  // Search input
+  // Filter toggle button
+  var filterToggle = document.getElementById('filterToggle');
+  if (filterToggle) {
+    filterToggle.addEventListener('click', function() {
+      toggleSidebar();
+    });
+  }
   var searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', function(e) {

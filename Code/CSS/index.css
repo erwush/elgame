@@ -129,7 +129,7 @@ text-transform: uppercase;
 }
 
 .container-carousel {
-  max-width: 87.5rem; /* 1400px → rem */
+ /* 1400px → rem */
   padding: 2rem 3rem;
 
 }
