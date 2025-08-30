@@ -451,12 +451,14 @@ text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
 
         .game-image-container {
             position: relative;
+
+            padding: 20px;
             flex-shrink: 0;
         }
 
         .game-image {
-            width: 200px;
-            height: 112px;
+            width: 460px;
+            height: 215px;
             object-fit: cover;
         }
 
