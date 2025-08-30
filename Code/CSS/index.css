@@ -56,6 +56,19 @@
   background-color: white;
 }
 
+.btn.browse-more {
+  background-color: transparent;
+  border: 2px solid #8b5cf6;
+  color: #8b5cf6;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 #searchtxt {
   background-color: #110735;
   color: white;
@@ -234,3 +247,144 @@ text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
   color: white;
   font-size: 200%;
 }
+
+
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #8b5cf6;
+            transform: scale(1.3);
+        }
+
+            .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            z-index: 3;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(139, 92, 246, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+                .nav-prev { left: -1.75rem; }
+        .nav-next { right: -1.75rem; }
+
+
+   .price {
+color: white;
+font-size: 0.9rem;
+font-weight: 500;
+      }
+
+              .game-price {
+            padding: 1rem;
+            text-align: center;
+        }
+
+           .top-seller-section {
+            position: relative;
+        }
+
+        .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .browse-more {
+            color: #8b5cf6;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .games-grid {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card {
+          margin-top: 0.5rem;
+            min-width: 220px;
+            background: #1a1f35;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .game-image {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+                .cardrousel-nav.prev {
+                   left: -1.5rem; 
+                }
+        .cardrousel-nav.next {
+           right: -1.5rem;
+           }
+
+             .cardrousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .cardrousel-nav:hover {
+            background: rgba(139, 92, 246, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
