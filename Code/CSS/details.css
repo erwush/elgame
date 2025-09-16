@@ -1,11 +1,393 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+ .footer-link {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .main-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+  radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+  radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+}
+
+@font-face {
+  font-family: 'Micro5';
+  src: url('../Assets/Fonts/Micro5.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Minecraftia';
+  src: url('../Assets/Fonts/MinecraftiaReg.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MinecraftTen';
+  src: url('../Assets/Fonts/MinecraftTen.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SGA';
+  src: url('../Assets/Fonts/SGA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Motiva Sans';
+  src: url('../Assets/Fonts/MotivaSansBold.woff2') format('woff2');
+}
+
+
+
+.navbar {
+  height: 3.6rem;
+}
+
+.nav-item {
+  list-style-type: none;
+  padding-top: 1%;
+}
+
+#navgam {
+  margin-right: 50px;
+  height: 40px;        /* atur sesuai tinggi navbar */
+  width: auto;         /* biar proporsional */
+  object-fit: contain;
+  padding-bottom: 5%;
+  padding-left: 35%;
+  align-items: center;
+
+}
+
+.nav-link {
+  object-fit: contain;
+  width: auto;
+  height: auto;
+
+}
+
+.btn.login {
+  background-color: white;
+}
+
+.btn.browse-more {
+  background-color: transparent;
+  border: 2px solid #8b5cf6;
+  color: #8b5cf6;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#searchtxt {
+  background-color: #110735;
+  color: white;
+  font-size: 115%;
+  font-family: 'Micro5', sans-serif;
+}
+
+.navmain a {
+  color: white;
+  text-decoration: none;
+  margin-right: 0.9375rem; /* 15px → rem */
+  justify-content: center;
+}
+
+#navte {
+  font-size: medium;
+  margin-right: 1.5625rem; /* 25px → rem */
+  color: white;
+  font-family: 'MotivaSansBold', sans-serif;
+font-style: normal;
+text-transform: uppercase;
+}
+
+#navte:hover {
+  color: #0988FF;
+  text-decoration: underline;
+}
+
+
+
+/* aa */
+
+
+
+
+
+
+.carousel-indicators {
+  z-index: 101;
+  margin-top: 3%;
+}
+
+#carouselExampleIndicators {
+  height: 200%;
+}
+
+.carousel-inner .img {
+  height: 90rem; /* 1440px → rem */
+}
+
+.container-carousel {
+
+  padding: 2rem 3rem;
+
+
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  height: 400px;
     
-</body>
-</html>
+}
+
+.carousel-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+
+.main-slide {
+flex: 2.5;
+position: relative;
+border-radius: 12px;
+overflow: hidden;
+background-image: url('../../Assets/Gambar/Thumbnail/Subnautica2.jpg');
+background-size: cover;
+background-position: center;
+
+}
+
+.main-slide-content {
+position: absolute;
+bottom: 2rem;
+left: 2rem;
+z-index: 2;
+}
+
+  .footer-link {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .main-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+  radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+  radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+}
+
+
+.main-game-title {
+font-size: 2.5rem;
+font-weight: bold;
+color: white;
+text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+  .main-game-subtitle {
+  color: rgba(255, 255, 255, 0.8); 
+  font-size: 0.9rem;
+  }
+
+  
+  #hero-card, #hero-card-item {
+    background-color: #151212;
+    color: white;
+  }
+  
+.hero-grid1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem; /* 4px */
+}
+
+.hero-grid2 {
+  margin-top: 0.3125rem; /* 5px */
+}
+
+.hero-grid1, .hero-grid2 {
+  width: 100%;
+  border-radius: 0.3125rem; /* 5px */
+  place-items: center;
+}
+
+#hero-card-img3 {
+  width: 85%;
+  align-items: center;
+  height: 100%;
+  border-radius: 0.3125rem; /* 5px */
+  justify-content: center;
+}
+
+#hero-card-img1, #hero-card-img2 {
+  width: 95%;
+  align-items: center;
+  height: auto;
+  border-radius: 0.3125rem; /* 5px */
+  justify-content: center;
+}
+
+#hero-card-title {
+  margin-left: 0.325rem; /* 1px */
+}
+
+
+#hero-card-link {
+  color: white;
+  font-size: 200%;
+}
+
+   .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #8b5cf6;
+            transform: scale(1.3);
+        }
+
+            .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            z-index: 3;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(139, 92, 246, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+                .nav-prev { left: -1.75rem; }
+        .nav-next { right: -1.75rem; }
+
+
+
+
+
+        .sidebar {
+            flex: 1;
+            background: #1e1e2e;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+            .game-info {
+            margin-bottom: 20px;
+        }
+
+        .game-info h3 {
+            color: #ffff00;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .game-details {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .game-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .rating {
+            color: #ffff00;
+        }
+           .similar-game {
+            background: #2a2a40;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .similar-game:hover {
+            background: #3a3a50;
+        }
+
+        .similar-game img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+        }
+
+        .similar-game h4 {
+            font-size: 12px;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .similar-game p {
+            font-size: 10px;
+            color: #999;
+        }
+
+        .community-section {
+            margin-top: 30px;
+        }

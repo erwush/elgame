@@ -1,49 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/browse.css">
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/browse.css">
-    
-  <title>Game List</title>
 
-      <!--- NAVBAR --->
-  <nav class="navbar navbar-expand-lg" style="background-color: #010F26; ">
-  <div class="container-fluid">
-      <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="wishlist.html" id="navte" style="padding-left: 9rem;">Wishlist</a>
-  </li>
-        <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="community.html" id="navte">Community</a>
-  </li>
-          <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="index.html" id="navte"> <img src="../Assets/Gambar/logo.png" alt="" id="navgam"> </a>
-  </li>
-        <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="categories.html" id="navte">Categories</a>
-  </li>
-        <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="news.html" id="navte">News</a>
-  </li>
-      <form class="d-flex" role="search">
-        <input id="searchtxt" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button style="width: 50px;" class="btn" type="submit"><img src="../Assets/Icons/searchicon.png" alt="SearchIcon" style="width: 25px;"></button>
-      </form>
-      <button class="btn login" type="submit">
-        LOGIN 
-      </button>
-    </div>
-  </div>
-</nav>
-</head>
-<body style="background-color: #020317;"> 
+<link rel="stylesheet" href="CSS/browse.css">
 
-  
    <div class="container-carousel">
     <div class="carousel-section">
       <h1 class="section-title"> Upcoming Games </h1>
@@ -166,7 +123,7 @@
                     Browse More
                     <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="m6 9 6 6 6-6"></path>
-                    </svg>
+                    </svg>d
                 </button>
             </div>
 
@@ -174,88 +131,7 @@
         </div>
     </div>
   
-<!-- Footer -->
-<footer class="bg-body-tertiary text-center" style="background-color: #181A2C; color: white;">
-  <!-- Grid container -->
-  <div class="foot-container p-4">
-
-<!-- Section: Links -->
-    <section class="">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">About</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Privacy Policy</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">Jobs</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Refunds</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">Distribution</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Cookies</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-        
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">Supports</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Legal</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-    </section>
-    <!-- Section: Links -->
-
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="border-top: 0.1rem solid white;">
-    © 2020 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-</body>
-
+    
 <script>
 // Game data
 // Game data
@@ -620,4 +496,3 @@ if (document.readyState === 'loading') {
   initializeApp();
 }
 </script>
-</html>

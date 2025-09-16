@@ -1,48 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head style="background-color: #020317;">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Game</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/index.css">
-    
-    <!--- NAVBAR --->
-  <nav class="navbar navbar-expand-lg" style="background-color: #010F26; ">
-  <div class="container-fluid">
-      <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="wishlist.html" id="navte" style="padding-left: 9rem;">Wishlist</a>
-  </li>
-        <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="community.html" id="navte">Community</a>
-  </li>
-          <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="index.html" id="navte"> <img src="../Assets/Gambar/logo.png" alt="" id="navgam"> </a>
-  </li>
-        <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="categories.html" id="navte">Categories</a>
-  </li>
-        <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="news.html" id="navte">News</a>
-  </li>
-      <form class="d-flex" role="search">
-        <input id="searchtxt" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button style="width: 50px;" class="btn" type="submit"><img src="../Assets/Icons/searchicon.png" alt="SearchIcon" style="width: 25px;"></button>
-      </form>
-      <button class="btn login" type="submit">
-        LOGIN 
-      </button>
-    </div>
-  </div>
-</nav>
-    <!--- NAVBAR --->
-</head>
-<body style="background-color: #020317;">
   <!-- Carousel Hero -->
-
+<link rel="stylesheet" href="CSS/home.css">
   
    <div class="container-carousel">
     <div class="carousel-section">
@@ -93,7 +50,7 @@
      <div class="top-seller-section">
             <div class="section-header-row">
                 <h2 class="section-title">Top-Seller</h2>
-                <a href="browse.html" class="btn browse-more">BROWSE MORE</a>
+                <a href="index.php?page=browse" class="btn browse-more">BROWSE MORE</a>
             </div>
             
             <div style="position: relative;">
@@ -191,7 +148,7 @@
      <div class="top-seller-section">
             <div class="section-header-row">
                 <h2 class="section-title">Top-Seller</h2>
-                <a href="browse.html" class="btn browse-more">BROWSE MORE</a>
+                <a href="index.php?page=browse" class="btn browse-more">BROWSE MORE</a>
             </div>
             
             <div style="position: relative;">
@@ -238,123 +195,8 @@
         </div>
 
    </div>
-	<!-- <div style="background-color: #010F26; height: 9dvh; border-top: 0.25dvh solid #ffffff;" class="navmain">
-        <a href="wishlist.html" style="color: #ffffff;">WISHLIST</a>
-        <a href="community.html" style="color: #ffffff;">COMMUNITY</a>
-        <a href="index.html" style="color: #ffffff;">EL GAME</a>
-        <a href="categories.html" style="color: #ffffff;">CATEGORIES</a>
-        <a href="news.html" style="color: #ffffff;">NEWS</a>
-    </div> -->
-<!-- 
-    <div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../Assets/Gambar/Thumbnail/Subnautica2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="../Assets/Gambar/Thumbnail/EldenRing.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="../Assets/Gambar/Thumbnail/Deeeer.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div> -->
 
-<!-- Footer -->
-<footer class="bg-body-tertiary text-center" style="background-color: #181A2C; color: white;">
-  <!-- Grid container -->
-  <div class="container p-4">
-
-<!-- Section: Links -->
-    <section class="">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">About</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Privacy Policy</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">Jobs</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Refunds</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">Distribution</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Cookies</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="footer-link" href="#!">Supports</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#!">Legal</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-    </section>
-    <!-- Section: Links -->
-
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="border-top: 0.1rem solid white;">
-    © 2020 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-
-
+   
 <script>
         const gameData = [
             { title: 'SUBNAUTICA 2', subtitle: 'Early Access Available Soon' },
@@ -429,5 +271,3 @@
 
         
     </script>
-</body>
-</html>
