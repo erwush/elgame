@@ -117,9 +117,22 @@ text-transform: uppercase;
 
 /* aa */
 
+.carousel-top-btn{
+  justify-content: flex-end;
+  display: flex;
+  color: white;
+  border: 1px solid white;
+  padding: 0.4rem;
+  font-size: 1rem;
+  text-decoration: none;
+}
 
 
-
+.carousel-top-section{
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
 
 
 .carousel-indicators {
@@ -142,11 +155,20 @@ text-transform: uppercase;
 
 }
 
+
+
 .carousel-wrapper {
   position: relative;
   display: flex;
   gap: 1rem;
-  height: 400px;
+  height: auto;
+background: linear-gradient(
+  to bottom,
+  rgba(63, 54, 89, 0.5) 0%,
+  rgba(34, 31, 43, 0.5) 100%
+);
+
+  
     
 }
 
@@ -165,9 +187,10 @@ text-transform: uppercase;
 .main-slide {
 flex: 2.5;
 position: relative;
-border-radius: 12px;
+border-radius: 1rem;
 overflow: hidden;
 background-image: url('../../Assets/Gambar/Thumbnail/Subnautica2.jpg');
+height: 400px;
 background-size: cover;
 background-position: center;
 
@@ -211,15 +234,41 @@ text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
 
   
   #hero-card, #hero-card-item {
-    background-color: #151212;
+    background-color: rgba(255, 255, 255, 0);
     color: white;
   }
   
 .hero-grid1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.25rem; /* 4px */
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
+
+.game-info-text{
+  margin-top: -0.5rem;
+}
+
+.genre-box {
+  display: flex;
+  align-items: center;       /* pastikan sejajar vertikal */
+  justify-content: flex-start; /* posisikan ke kiri */
+  gap: 0.5rem;               /* beri jarak antar box */
+}
+
+.genre-text {
+  background-color: #303646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  font-size: smaller;
+  color: white;
+  margin-left: 0.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: -10px;
+}
+
 
 .hero-grid2 {
   margin-top: 0.3125rem; /* 5px */
@@ -229,6 +278,10 @@ text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
   width: 100%;
   border-radius: 0.3125rem; /* 5px */
   place-items: center;
+}
+
+#hero-card-text{
+  border-top: solid white 1px;
 }
 
 #hero-card-img3 {
