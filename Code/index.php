@@ -6,10 +6,20 @@
      include '../Component/navbar.php'; 
     
     $page = isset($_GET['page']) ? $_GET['page'] : 'home';
-    if($page == 'home') include '../Page/home.php';
-    else if($page == 'browse') include '../Page/browse.php';
-    else if($page == 'details') include '../Page/details.php';
-    
+    switch ($page) {
+        case 'home':
+            include '../Page/home.php';
+            break;
+        case 'browse':
+            include '../Page/browse.php';
+            break;
+        case 'details':
+            include '../Page/details.php';
+            break;
+        default:
+            include '../Page/home.php';
+            break;
+    }
     include '../Component/footer.php'; ?>
 
 
