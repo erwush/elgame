@@ -66,6 +66,12 @@
               <span class="pc-mtext">Input Genre</span>
             </a>
           </li>
+                    <li class="pc-item">
+            <a href="?page=showgenre" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+              <span class="pc-mtext">Tampil Genre</span>
+            </a>
+          </li>
 
 
           <li class="pc-item pc-caption">
