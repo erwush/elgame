@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <body  style="background-color: #020317;">
 
@@ -16,6 +16,8 @@
           <div class="main-game-subtitle">Early Access Available Soon</div>
       </div>
       </div>
+
+      
      
     
 <div class="sidebar">
@@ -84,4 +86,4 @@
 
   
 </body>
-</html>
+</html> -->

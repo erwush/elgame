@@ -3,6 +3,10 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
+          #requirement-text{
+          color: white;
+        }
+
   .main-slide-bg {
   position: absolute;
   top: 0;
@@ -401,6 +405,7 @@ text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
             justify-content: space-between;
         }
 
+
         .rating {
             color: #ffff00;
         }
@@ -516,7 +521,7 @@ text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.rem;
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 2px solid #3a4a6a;
@@ -571,3 +576,5 @@ text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
                 grid-template-columns: 1fr;
             }
         }
+
+        

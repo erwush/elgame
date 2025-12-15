@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="CSS/browse.css">
 
    <div class="container-carousel">
     <div class="carousel-section">

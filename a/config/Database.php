@@ -1,5 +1,5 @@
 <?php
-class DatabaseController{
+class Database{
     private $connection;
     public function getConnection(){
         $this->connection = null;

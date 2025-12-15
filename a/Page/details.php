@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="CSS/details.css">
 
+<style>
+    #requirement-text{
+    color: white;
+  }
+</style>
+
 <div class="carousel-outer">
 
 
@@ -23,7 +29,7 @@
         </div>
       </div>
       <div id="hero-card" class="card" style="width: 18rem; border-radius: 12px;">
-        <h1 id="hero-card-title" class="card-title">Subnautica 2</h1>
+        <h1 id="hero-card-title" class="card-title">DEEEER Simulator</h1>
         <div class="hero-grid1">
           <img src="../Assets/Gambar/Skrinsut/Subnautica2/Sks1.jpg" id="hero-card-img1" class="card-img-top" alt="...">
         </div>
@@ -102,10 +108,10 @@
 
             <div class="requirements-grid">
                 <div class="requirements-box">
-                    <h3>💻 Minimum Requirements</h3>
+                    <h3 class="requirement-text" style="color: white">Minimum Requirements</h3>
                     <div class="requirement-item">
                         <span class="requirement-label">Memory:</span>
-                        <span class="requirement-value">1 GB Ram</span>
+                        <span class="requirement-value">1 KB Ram</span>
                     </div>
                     <div class="requirement-item">
                         <span class="requirement-label">Storage:</span>
@@ -121,7 +127,7 @@
                     </div>
                     <div class="requirement-item">
                         <span class="requirement-label">Processor:</span>
-                        <span class="requirement-value">Intel Core i9 12t Gen</span>
+                        <span class="requirement-value">Intel Core i1 First Gen</span>
                     </div>
                     <div class="requirement-item">
                         <span class="requirement-label">OS:</span>
@@ -130,7 +136,7 @@
                 </div>
 
                 <div class="requirements-box">
-                    <h3>🎮 Recommended Requirements</h3>
+                    <h3 class="requirement-text" style="color: white"> Recommended Requirements</h3>
                     <div class="requirement-item">
                         <span class="requirement-label">Memory:</span>
                         <span class="requirement-value">1028 GB Ram</span>
